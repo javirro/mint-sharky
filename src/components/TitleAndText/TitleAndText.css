@@ -1,0 +1,28 @@
+.title-text {
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: var(--s12);
+  h3 {
+    color: var(--white);
+    font-size: var(--s32);
+    font-weight: 700;
+    line-height: var(--s40);
+    text-align: center;
+    width: 100%;
+  }
+  p {
+    color: var(--grey);
+    font-size: var(--s14);
+    font-weight: 400;
+    line-height: var(--s24);
+    text-align: center;
+    width: 40%;
+  }
+  p.ingrid {
+    width: 80%;
+    text-align: center;
+  }
+}

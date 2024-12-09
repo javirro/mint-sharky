@@ -69,6 +69,10 @@
   margin: 0;
 }
 
+button {
+  cursor: pointer;
+}
+
 /* TAMAÑOS REM DEFINITION*/
 @media (max-width: 768px) {
   :root {
