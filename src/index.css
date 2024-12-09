@@ -1,0 +1,83 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;550;600;700&display=swap");
+
+:root {
+  font-family: Montserrat;
+  width: 100%;
+  height: 100%;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  background-color: black;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  --yellow: #ffc550;
+  --white: #f0f0f0;
+  --grey: #f0f0f0cc;
+  --blue: #022731;
+  --remMobile: calc(16 * 100vw / 390);
+  --remDesktop: calc(16 * 100vw / 1440);
+  --s2: 0.125rem;
+  --s4: 0.25rem;
+  --s6: 0.375rem;
+  --s8: 0.5rem;
+  --s10: 0.625rem;
+  --s11: 0.6875rem;
+  --s12: 0.75rem;
+  --s13: 0.8125rem;
+  --s14: 0.875rem;
+  --s15: 0.9375rem;
+  --s16: 1rem;
+  --s17: 1.0625rem;
+  --s18: 1.125rem;
+  --s20: 1.25rem;
+  --s24: 1.5rem;
+  --s28: 1.75rem;
+  --s30: 1.875rem;
+  --s31: 1.9375rem;
+  --s32: 2rem;
+  --s34: 2.125rem;
+  --s36: 2.25rem;
+  --s40: 2.5rem;
+  --s44: 2.75rem;
+  --s46: 2.875rem;
+  --s48: 3rem;
+  --s50: 3.125rem;
+  --s56: 3.5rem;
+  --s60: 3.75rem;
+  --s64: 4rem;
+  --s70: 4.375rem;
+  --s72: 4.5rem;
+  --s80: 5rem;
+  --s88: 5.5rem;
+  --s96: 6rem;
+  --s100: 6.25rem;
+  --s104: 6.5rem;
+  --s120: 7.5rem;
+  --s128: 8rem;
+  --s200: 12.5rem;
+  --s240: 15rem;
+}
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+/* TAMAÑOS REM DEFINITION*/
+@media (max-width: 768px) {
+  :root {
+    font-s: var(--remMobile);
+  }
+}
+
+@media (min-width: 1024px) {
+  :root {
+    font-s: var(--remDesktop);
+  }
+}
