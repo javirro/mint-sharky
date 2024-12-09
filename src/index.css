@@ -72,12 +72,12 @@
 /* TAMAÑOS REM DEFINITION*/
 @media (max-width: 768px) {
   :root {
-    font-s: var(--remMobile);
+    font-size: var(--remMobile);
   }
 }
 
 @media (min-width: 1024px) {
   :root {
-    font-s: var(--remDesktop);
+    font-size: var(--remDesktop);
   }
 }
