@@ -3,7 +3,7 @@
   flex-direction: column;
   align-items: center;
   width: 100%;
-  gap: var(--s12);
+  gap: var(--s24);
   h4 {
     color: white;
     font-size: var(--s24);
@@ -49,4 +49,16 @@
     font-weight: 700;
     color: var(--blue);
   }
+}
+
+@media (max-width: 768px) {
+  .sharky-nfts-box {
+    .select-buttons {
+      width: 100%;
+    }
+    .mint-nft-btn {
+      width: 100%;
+    }
+  }
+  
 }

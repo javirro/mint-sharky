@@ -21,3 +21,18 @@
     width: 80%;
   }
 }
+
+@media (max-width: 768px) {
+  .shark-row {
+    padding: var(--s8);
+  }
+  .shark-row .upper {
+    flex-direction: column;
+    gap: var(--s8);
+  }
+  .shark-row .lower {
+    flex-direction: column;
+    gap: var(--s8);
+  }
+  
+}

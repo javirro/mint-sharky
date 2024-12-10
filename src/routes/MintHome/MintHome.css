@@ -8,7 +8,6 @@
   gap: var(--s80);
 }
 
-
 .grid {
   display: grid;
   padding-left: var(--s24);
@@ -18,4 +17,28 @@
   gap: var(--s12);
   justify-content: center;
   place-items: center center;
+}
+
+@media (max-width: 768px) {
+  .page {
+    padding: var(--s16);
+  }
+  .grid {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    img {
+      width: 90%;
+    }
+  }
+  .reverse {
+    display: flex;
+    flex-direction: column-reverse;
+    justify-content: center;
+    align-items: center;
+    img {
+      width: 90%;
+    }
+  }
 }

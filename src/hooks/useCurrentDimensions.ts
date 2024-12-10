@@ -16,9 +16,7 @@ const useCurrentDimensions = () => {
       window.removeEventListener('resize', updateResize)
     }
   }, [dimensions])
-  return {
-    dimensions,
-  }
+  return dimensions
 }
 
 export default useCurrentDimensions

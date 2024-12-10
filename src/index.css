@@ -80,7 +80,7 @@ button {
   }
 }
 
-@media (min-width: 1024px) {
+@media (min-width: 769px) {
   :root {
     font-size: var(--remDesktop);
   }
