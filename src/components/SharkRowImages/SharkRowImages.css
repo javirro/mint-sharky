@@ -1,0 +1,23 @@
+.shark-row {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: var(--s8);
+  width: 100%;
+  flex-direction: column;
+  padding: var(--s12);
+  width: 100%;
+
+  .upper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+  }
+  .lower {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 80%;
+  }
+}
