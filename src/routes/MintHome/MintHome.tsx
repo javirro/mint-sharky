@@ -1,20 +1,20 @@
+
+import ChooseAmountNfts from '../../components/ChooseAmountNfts/ChooseAmountNfts'
 import ComingSoon from '../../components/ComingSoon/ComingSoon'
 import HowManynfts from '../../components/HowManyNfts/HowManyNfts'
 import DesktopNavbar from '../../components/Navbar/DesktopNavbar'
-import SharkRowImages from '../../components/SharkRowImages/SharkRowImages'
+import SharksSlideshow from '../../components/SharksSlideshow/SharksSlideshow'
 import TitleAndText from '../../components/TitleAndText/TitleAndText'
 import { images } from '../../images'
 import './MintHome.css'
 
 const MintHome = () => {
+
   return (
     <section className="page">
       <DesktopNavbar />
-      <div className="sharky-nfts-box">
-        <TitleAndText title="Don Sharky NFTs" text="Join the sharky world exclusive community by holding an NFT. Get access to exclusive rewards" />
-        <button className="mint-nft-btn">Mint Nft</button>
-      </div>
-      <SharkRowImages />
+      <ChooseAmountNfts />
+      <SharksSlideshow />
       <TitleAndText
         title="Why Don Sharky NFTs?"
         text="Our NFT collection offers multiple utilities within the Sharky World ecosystem, providing exclusive benefits to holders. Here are some of the main ones:"
@@ -36,7 +36,7 @@ const MintHome = () => {
         />
         <img src={images.sharkyCabal} alt="Sharky Cabal" />
       </section>
-
+      <SharksSlideshow />
       <ComingSoon />
       <HowManynfts />
     </section>

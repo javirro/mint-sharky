@@ -10,15 +10,17 @@ import redSharkLeft from './redSharkLeft.svg'
 import redSharkRight from './redSharkRight.svg'
 import yellowSharkLeft from './yellowSharkLeft.svg'
 import yellowSharkTop from './yellowSharkTop.svg'
+import redSharkSlide from './redSharkSlide.svg'
+import purpleSharkSlide from './purpleSharkSlide.svg'
+import blackSharkSlide from './blackSharkSlide.svg'
 
-export const images = { 
+export const images = {
   logoSharky,
   sharkPercetanges,
   sharkyCabal,
   brain,
   gift,
-  howManynfts: HowManynftsImg
-  
+  howManynfts: HowManynftsImg,
 }
 
 export const sharkRow = {
@@ -26,6 +28,13 @@ export const sharkRow = {
   purpleSharkTopRight,
   redSharkLeft,
   redSharkRight,
+  
   yellowSharkLeft,
-  yellowSharkTop
+  yellowSharkTop,
+}
+
+export const slideShowImgs = {
+  redSharkSlide,
+  purpleSharkSlide,
+  blackSharkSlide,
 }

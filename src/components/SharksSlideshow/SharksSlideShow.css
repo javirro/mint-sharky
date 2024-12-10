@@ -1,0 +1,31 @@
+.slideshow-box {
+  display: flex;
+  flex-wrap: nowrap;
+  width: 100%;
+  background: #0D0D0D;
+  height: calc(260 * 100vw / 1440);
+  position: relative;
+  overflow: hidden;
+  white-space: nowrap;
+  .slideshow {
+    display: flex;
+    width: 100%;
+    gap: var(--s64);
+    animation: marquee linear infinite;
+    animation-duration: 10s;
+    width: max-content;
+    img {
+      flex-shrink: 0;
+      width: calc(188 * 100vw / 1440);
+    }
+  }
+}
+
+@keyframes marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-100%);
+  }
+}
