@@ -61,6 +61,18 @@
         padding: var(--s12) var(--s24);
         cursor: pointer;
       }
+      span {
+        font-family: Montserrat;
+        background-color: var(--yellow);
+        box-shadow: 0px 1px 1px 0px #ffe1a3 inset;
+        color: #022731;
+        font-weight: 600;
+        font-size: var(--s14);
+        line-height: var(--s18);
+        border: none;
+        border-radius: 34px;
+        padding: var(--s12) var(--s24);
+      }
 
       button:hover {
         background-color: #ffbc37;
