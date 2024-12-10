@@ -1,0 +1,70 @@
+#how-many-nfts {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: var(--s32);
+  width: 100%;
+  .grid {
+    display: grid;
+    grid-template-columns: 35% 40%;
+    justify-content: center;
+    place-items: center center;
+    width: 100%;
+  }
+
+  .left {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: var(--s32);
+    width: 100%;
+    h4 {
+      color: white;
+      font-size: var(--s24);
+      font-weight: 700;
+      line-height: var(--s24);
+      text-align: center;
+    }
+    .select-buttons {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      width: 100%;
+      button {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: #022731;
+        border: none;
+        border-radius: var(--s4);
+        color: white;
+        width: var(--s50);
+        height: var(--s50);
+        font-size: var(--s32);
+        font-weight: 700;
+      }
+      span {
+        color: white;
+        font-size: var(--s32);
+        font-weight: 700;
+      }
+    }
+  }
+
+  .mint-nft-btn {
+    width: 100%;
+    background-color: var(--yellow);
+    box-shadow:
+      0px 8px 40.3px 0px #ffc55052,
+      0px 2px 4px 0px #00000054,
+      0px 8px 8.3px 0px #ffe1a3 inset;
+    border-radius: var(--s32);
+    border: none;
+    padding: var(--s12) var(--s24);
+    font-family: Montserrat;
+    font-weight: 700;
+    color: var(--blue);
+  }
+}

@@ -1,7 +1,10 @@
+import ComingSoon from '../../components/ComingSoon/ComingSoon'
+import HowManynfts from '../../components/HowManyNfts/HowManyNfts'
 import DesktopNavbar from '../../components/Navbar/DesktopNavbar'
 import TitleAndText from '../../components/TitleAndText/TitleAndText'
 import { images } from '../../images'
 import './MintHome.css'
+
 const MintHome = () => {
   return (
     <section className="page">
@@ -31,6 +34,9 @@ const MintHome = () => {
         />
         <img src={images.sharkyCabal} alt="Sharky Cabal" />
       </section>
+
+      <ComingSoon />
+      <HowManynfts />
     </section>
   )
 }
