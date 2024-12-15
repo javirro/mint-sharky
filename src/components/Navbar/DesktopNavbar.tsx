@@ -1,14 +1,22 @@
 import { NavLink } from 'react-router-dom'
 import { images } from '../../images'
-import { useAccount } from 'wagmi'
+import { useAccount, useBalance } from 'wagmi'
 import { useLoginWithAbstract } from '@abstract-foundation/agw-react'
 
 import './Navbar.css'
 
-
 const DesktopNavbar = () => {
   const { address, status } = useAccount()
-  const { login } = useLoginWithAbstract()
+  const { login, logout } = useLoginWithAbstract()
+  const result = useBalance({
+    address: address,
+    chainId: 11124,
+  })
+
+  console.log('balanceData', result)
+  const value = result?.data?.value
+  const formatted = result?.data?.formatted
+  console.log({ value, formatted, address })
   return (
     <nav id="desktop-nav">
       <div className="content">
@@ -33,7 +41,7 @@ const DesktopNavbar = () => {
 
         <div className="right">
           {(status === 'disconnected' || status === 'connecting') && <button onClick={login}>Connect Wallet</button>}
-          {status === 'connected' && <span>{`${address.slice(0, 6)}...${address.slice(-6)}`}</span>}
+          {status === 'connected' && <button onClick={logout}>{`${address.slice(0, 6)}...${address.slice(-6)}`}</button>}
         </div>
       </div>
     </nav>

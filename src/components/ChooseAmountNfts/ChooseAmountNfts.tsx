@@ -1,8 +1,10 @@
 import { useState } from 'react'
 import './ChooseAmountNfts.css'
 
+
 const ChooseAmountNfts = () => {
   const [nfts, setNfts] = useState(1)
+
   const handleChangeNft = (op: 'increase' | 'decrease') => {
     if (op === 'increase') {
       setNfts(nfts + 1)
