@@ -1,7 +1,30 @@
 import { images } from '../../images'
+import { CommonProps } from '../../routes/MintHome/MintHome'
 import './ComingSoon.css'
 
-const ComingSoon = () => {
+const ComingSoon = ({setTxHash, setType}: CommonProps) => {
+
+  const handleMintNft = async () => {
+    try {
+      // const txApprove = await approve(writeContractAsync, PAY_TOKEN_ADDRESS, CONTRACT_ADDRESS, '1')
+      // console.log('txApprove', txApprove)
+    } catch (error) {
+      console.log('Error approving token', error)
+    }
+
+    try {
+      const txMint = ""
+      setTxHash(txMint)
+      setType('success')
+      // const txMint = await mintPublic(writeContractAsync, nfts)
+      // setTxHash(txMint)
+      // console.log('txMint', txMint)
+    } catch (error) {
+      console.log('Error minting NFT', error)
+      setType('error')
+      setTxHash('Error')
+    }
+  }
   return (
     <div className="coming-soon">
       <h3>Coming Soon</h3>
@@ -27,7 +50,7 @@ const ComingSoon = () => {
           </section>
         </div>
       </div>
-      <button>Mint NFT</button>
+      <button onClick={handleMintNft}>Mint NFT</button>
     </div>
   )
 }

@@ -7,9 +7,9 @@ export const approve = async (
   writeContractAsync: WriteContractMutateAsync<Config, unknown>,
   tokenAddress: string,
   spender: string,
-  amount: string | bigint
+  amount: string 
 ): Promise<`0x${string}`> => {
-  const weiAmount = typeof amount === 'bigint' ? amount : BigInt(+amount * 10 ** 18)
+  const weiAmount = BigInt(+amount * 10 ** 18)
   const transactionApproveHash = await writeContractAsync({
     address: tokenAddress as `0x${string}`,
     abi: ABIS.token,

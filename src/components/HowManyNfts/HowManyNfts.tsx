@@ -1,11 +1,13 @@
 import { useState } from 'react'
 import { images } from '../../images'
-import './HowManyNfts.css'
+
 import { useWriteContract } from 'wagmi'
 import { approve } from '../../contracts/approve'
 import { CONTRACT_ADDRESS, mintPublic, PAY_TOKEN_ADDRESS } from '../../contracts/mint'
+import { CommonProps } from '../../routes/MintHome/MintHome'
+import './HowManyNfts.css'
 
-const HowManynfts = () => {
+const HowManynfts = ({setTxHash, setType}: CommonProps) => {
   const [nfts, setNfts] = useState(1)
   const handleChangeNft = (op: 'increase' | 'decrease') => {
     if (op === 'increase') {
@@ -18,7 +20,7 @@ const HowManynfts = () => {
 
   const handleMintNft = async () => {
     try {
-      const txApprove = await approve(writeContractAsync, PAY_TOKEN_ADDRESS, CONTRACT_ADDRESS, BigInt(1))
+      const txApprove = await approve(writeContractAsync, PAY_TOKEN_ADDRESS, CONTRACT_ADDRESS, '1')
       console.log('txApprove', txApprove)
     } catch (error) {
       console.log('Error approving token', error)
@@ -26,10 +28,12 @@ const HowManynfts = () => {
 
     try {
       const txMint = await mintPublic(writeContractAsync, nfts)
+      setTxHash(txMint)
       console.log('txMint', txMint)
     } catch (error) {
+      setType('error')
+      setTxHash('Error')
       console.log('Error minting NFT', error)
-      
     }
   }
 

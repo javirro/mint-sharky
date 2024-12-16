@@ -1,6 +1,8 @@
+import { useState } from 'react'
 import ChooseAmountNfts from '../../components/ChooseAmountNfts/ChooseAmountNfts'
 import ComingSoon from '../../components/ComingSoon/ComingSoon'
 import HowManynfts from '../../components/HowManyNfts/HowManyNfts'
+import MintModal from '../../components/Modal/MintModal'
 import DesktopNavbar from '../../components/Navbar/DesktopNavbar'
 import MobileNavbar from '../../components/Navbar/MobileNavbar'
 import SharksSlideshow from '../../components/SharksSlideshow/SharksSlideshow'
@@ -9,13 +11,21 @@ import useCurrentDimensions from '../../hooks/useCurrentDimensions'
 import { images } from '../../images'
 import './MintHome.css'
 
+export interface CommonProps {
+  setTxHash: (txHash: string) => void
+  setType: (type: "success" | "error") => void
+}
 const MintHome = () => {
   const { width } = useCurrentDimensions()
   const isMobile = width < 768
+  const [txHash, setTxHash] = useState<string>("")
+  const [type, setType] = useState<"success" | "error">("success")
+
   return (
     <section className="page">
+      {txHash !== "" && <MintModal setTxHash={setTxHash} txHash={txHash} type={type} />}
       {isMobile ? <MobileNavbar /> : <DesktopNavbar />}
-      <ChooseAmountNfts />
+      <ChooseAmountNfts setTxHash={setTxHash} setType={setType}/>
       <SharksSlideshow />
       <TitleAndText
         title="Why Don Sharky NFTs?"
@@ -39,8 +49,8 @@ const MintHome = () => {
         <img src={images.sharkyCabal} alt="Sharky Cabal" />
       </section>
       <SharksSlideshow />
-      <ComingSoon />
-      <HowManynfts />
+      <ComingSoon setTxHash={setTxHash} setType={setType}/>
+      <HowManynfts setTxHash={setTxHash} setType={setType}/>
     </section>
   )
 }

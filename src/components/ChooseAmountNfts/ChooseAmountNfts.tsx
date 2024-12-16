@@ -1,8 +1,11 @@
 import { useState } from 'react'
+import { CommonProps } from '../../routes/MintHome/MintHome'
+
 import './ChooseAmountNfts.css'
 
 
-const ChooseAmountNfts = () => {
+const ChooseAmountNfts = ({ setTxHash, setType }: CommonProps) => {
+  console.log(setTxHash, setType)
   const [nfts, setNfts] = useState(1)
 
   const handleChangeNft = (op: 'increase' | 'decrease') => {
