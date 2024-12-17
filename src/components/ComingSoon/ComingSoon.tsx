@@ -1,9 +1,11 @@
+import { useAccount } from 'wagmi'
 import { images } from '../../images'
 import { CommonProps } from '../../routes/MintHome/MintHome'
 import './ComingSoon.css'
 
 const ComingSoon = ({setTxHash, setType}: CommonProps) => {
-
+    const { address, status } = useAccount()
+    const disabledButton = status !== 'connected' || !address
   const handleMintNft = async () => {
     try {
       // const txApprove = await approve(writeContractAsync, PAY_TOKEN_ADDRESS, CONTRACT_ADDRESS, '1')
@@ -50,7 +52,7 @@ const ComingSoon = ({setTxHash, setType}: CommonProps) => {
           </section>
         </div>
       </div>
-      <button onClick={handleMintNft}>Mint NFT</button>
+      <button onClick={handleMintNft} disabled={disabledButton}>Mint NFT</button>
     </div>
   )
 }

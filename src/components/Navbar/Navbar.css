@@ -48,7 +48,7 @@
       display: flex;
       justify-content: flex-end;
       align-items: center;
-      button {
+      .connect {
         font-family: Montserrat;
         background-color: var(--yellow);
         box-shadow: 0px 1px 1px 0px #ffe1a3 inset;
@@ -61,21 +61,42 @@
         padding: var(--s12) var(--s24);
         cursor: pointer;
       }
-      span {
-        font-family: Montserrat;
-        background-color: var(--yellow);
-        box-shadow: 0px 1px 1px 0px #ffe1a3 inset;
-        color: #022731;
-        font-weight: 600;
-        font-size: var(--s14);
-        line-height: var(--s18);
-        border: none;
-        border-radius: 34px;
-        padding: var(--s12) var(--s24);
-      }
 
       button:hover {
         background-color: #ffbc37;
+      }
+      .user-data-box {
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: flex-end;
+        gap: var(--s8);
+        background: rgba(0,0,0,0.3);
+        padding: var(--s12);
+        border-radius: 35px;
+        .address {
+          color: white;
+          font-size: var(--s14);
+          font-weight: 600;
+        }
+        .balance {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          gap: var(--s12);
+          span {
+            color: white;
+            font-size: var(--s14);
+            font-weight: 400;
+          }
+          button {
+            background: transparent;
+            border: none;
+            color: var(--grey);
+            font-size: var(--s14);
+            font-weight: 400;
+          }
+        }
       }
     }
   }

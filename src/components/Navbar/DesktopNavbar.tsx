@@ -17,6 +17,7 @@ const DesktopNavbar = () => {
   const value = result?.data?.value
   const formatted = result?.data?.formatted
   console.log({ value, formatted, address })
+  const scanUrl = 'https://explorer.testnet.abs.xyz/address/' + address
   return (
     <nav id="desktop-nav">
       <div className="content">
@@ -40,8 +41,21 @@ const DesktopNavbar = () => {
         </div>
 
         <div className="right">
-          {(status === 'disconnected' || status === 'connecting') && <button onClick={login}>Connect Wallet</button>}
-          {status === 'connected' && <button onClick={logout}>{`${address.slice(0, 6)}...${address.slice(-6)}`}</button>}
+          {(status === 'disconnected' || status === 'connecting') && (
+            <button onClick={login} className="connect">
+              Connect Wallet
+            </button>
+          )}
+          {/* {status === 'connected' && <button onClick={logout}>{`${address.slice(0, 6)}...${address.slice(-6)}`}</button>} */}
+          {status === 'connected' && (
+            <div className="user-data-box">
+              <a className='address' href={scanUrl} target='blank_' rel='noreferrer'>{`${address?.slice(0, 8)}...${address?.slice(-8)}`}</a>
+              <div className="balance">
+                <span >{formatted ? (+formatted)?.toFixed(6) : '0.00'} ETH</span>
+                <button onClick={logout}>Disconnect</button>
+              </div>
+            </div>
+          )}
         </div>
       </div>
     </nav>

@@ -73,6 +73,10 @@ button {
   cursor: pointer;
 }
 
+button:disabled {
+  opacity: 0.5;
+}
+
 /* TAMAÑOS REM DEFINITION*/
 @media (max-width: 768px) {
   :root {

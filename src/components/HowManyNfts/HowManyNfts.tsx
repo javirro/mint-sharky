@@ -1,14 +1,16 @@
 import { useState } from 'react'
 import { images } from '../../images'
 
-import { useWriteContract } from 'wagmi'
+import { useAccount, useWriteContract } from 'wagmi'
 import { approve } from '../../contracts/approve'
 import { CONTRACT_ADDRESS, mintPublic, PAY_TOKEN_ADDRESS } from '../../contracts/mint'
 import { CommonProps } from '../../routes/MintHome/MintHome'
 import './HowManyNfts.css'
 
-const HowManynfts = ({setTxHash, setType}: CommonProps) => {
+const HowManynfts = ({ setTxHash, setType }: CommonProps) => {
   const [nfts, setNfts] = useState(1)
+  const { address, status } = useAccount()
+  const disabledButton = status !== 'connected' || !address
   const handleChangeNft = (op: 'increase' | 'decrease') => {
     if (op === 'increase') {
       setNfts(nfts + 1)
@@ -47,7 +49,7 @@ const HowManynfts = ({setTxHash, setType}: CommonProps) => {
             <span>{nfts}</span>
             <button onClick={() => handleChangeNft('increase')}>+</button>
           </div>
-          <button className="mint-nft-btn" onClick={handleMintNft}>
+          <button className="mint-nft-btn" onClick={handleMintNft} disabled={disabledButton}>
             Mint NFT
           </button>
         </div>

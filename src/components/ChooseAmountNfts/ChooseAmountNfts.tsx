@@ -1,11 +1,13 @@
 import { useState } from 'react'
 import { CommonProps } from '../../routes/MintHome/MintHome'
+import { useAccount } from 'wagmi'
 
 import './ChooseAmountNfts.css'
 
-
 const ChooseAmountNfts = ({ setTxHash, setType }: CommonProps) => {
   console.log(setTxHash, setType)
+  const { address, status } = useAccount()
+  const disabledButton = status !== 'connected' || !address
   const [nfts, setNfts] = useState(1)
 
   const handleChangeNft = (op: 'increase' | 'decrease') => {
@@ -15,6 +17,7 @@ const ChooseAmountNfts = ({ setTxHash, setType }: CommonProps) => {
       setNfts((prev) => (prev > 1 ? prev - 1 : prev))
     }
   }
+ 
   return (
     <div className="sharky-nfts-box">
       <h4>How many NFTs are you minting?</h4>
@@ -23,7 +26,7 @@ const ChooseAmountNfts = ({ setTxHash, setType }: CommonProps) => {
         <span>{nfts}</span>
         <button onClick={() => handleChangeNft('increase')}>+</button>
       </div>
-      <button className="mint-nft-btn">Mint NFT</button>
+      <button className="mint-nft-btn" disabled={disabledButton}>Mint NFT</button>
     </div>
   )
 }
