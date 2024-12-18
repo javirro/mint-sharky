@@ -5,7 +5,7 @@ import { abstractTestnet } from 'viem/chains'
 import { Config } from 'wagmi'
 
 
-export const CONTRACT_ADDRESS = '0x6BD39e8D6C4beE0caCF3A606c6b977E90E173c1a'
+export const CONTRACT_ADDRESS = '0xD4f7df8AFc4411d8B02A675dEe4f613158fFA5b2'
 
 export const PAY_TOKEN_ADDRESS = '0x37954Faf11f7B50AF4cc4edE1cfa6A5f593a6C1c'
 
