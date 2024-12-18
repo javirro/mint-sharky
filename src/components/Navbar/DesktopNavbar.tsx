@@ -1,12 +1,14 @@
 import { NavLink } from 'react-router-dom'
 import { images } from '../../images'
 import { useAccount, useBalance } from 'wagmi'
-import { useLoginWithAbstract } from '@abstract-foundation/agw-react'
+import { useGlobalWalletSignerAccount, useLoginWithAbstract } from '@abstract-foundation/agw-react'
 
 import './Navbar.css'
 
 const DesktopNavbar = () => {
   const { address, status } = useAccount()
+  const { address: addressSigner, status: statusSigner } = useGlobalWalletSignerAccount()
+  console.log({ addressSigner, statusSigner })
   const { login, logout } = useLoginWithAbstract()
   const result = useBalance({
     address: address,

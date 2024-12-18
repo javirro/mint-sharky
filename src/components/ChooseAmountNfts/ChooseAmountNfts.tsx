@@ -3,10 +3,14 @@ import { CommonProps } from '../../routes/MintHome/MintHome'
 import { useAccount } from 'wagmi'
 
 import './ChooseAmountNfts.css'
+import { useGlobalWalletSignerClient } from '@abstract-foundation/agw-react'
+import { ABIS, CONTRACT_ADDRESS, PAY_TOKEN_ADDRESS } from '../../contracts/mint'
+import { abstractTestnet } from 'viem/chains'
 
 const ChooseAmountNfts = ({ setTxHash, setType }: CommonProps) => {
   console.log(setTxHash, setType)
   const { address, status } = useAccount()
+  const { data: client, isLoading, error } = useGlobalWalletSignerClient()
   const disabledButton = status !== 'connected' || !address
   const [nfts, setNfts] = useState(1)
 
@@ -17,7 +21,35 @@ const ChooseAmountNfts = ({ setTxHash, setType }: CommonProps) => {
       setNfts((prev) => (prev > 1 ? prev - 1 : prev))
     }
   }
- 
+
+  const handleMintNft = async () => {
+    try {
+      const txApprove = await client?.writeContract({
+        address: PAY_TOKEN_ADDRESS as `0x${string}`,
+        abi: ABIS.token,
+        functionName: 'approve',
+        args: [CONTRACT_ADDRESS, '10000000000000'],
+        chain: abstractTestnet,
+      })
+      console.log('Tx approve', txApprove)
+    } catch (error) {
+      console.error('Error approving tokens', error)
+    }
+
+    try {
+      const tx = await client?.writeContract({
+        address: CONTRACT_ADDRESS as `0x${string}`,
+        abi: ABIS.mint,
+        functionName: 'mintPublic',
+        args: [nfts],
+        chain: abstractTestnet,
+        gas: BigInt(600000),
+      })
+      console.log('Tx minted', tx)
+    } catch (error) {
+      console.error('Error minting NFTs', error)
+    }
+  }
   return (
     <div className="sharky-nfts-box">
       <h4>How many NFTs are you minting?</h4>
@@ -26,7 +58,9 @@ const ChooseAmountNfts = ({ setTxHash, setType }: CommonProps) => {
         <span>{nfts}</span>
         <button onClick={() => handleChangeNft('increase')}>+</button>
       </div>
-      <button className="mint-nft-btn" disabled={disabledButton}>Mint NFT</button>
+      <button className="mint-nft-btn" disabled={disabledButton} onClick={handleMintNft}>
+        Mint NFT
+      </button>
     </div>
   )
 }
