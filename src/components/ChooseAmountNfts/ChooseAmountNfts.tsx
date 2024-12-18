@@ -46,8 +46,11 @@ const ChooseAmountNfts = ({ setTxHash, setType }: CommonProps) => {
         gas: BigInt(600000),
       })
       console.log('Tx minted', tx)
+      setTxHash(tx as string)
+      setType('success')
     } catch (error) {
       console.error('Error minting NFTs', error)
+      setType('error')
     }
   }
   return (
