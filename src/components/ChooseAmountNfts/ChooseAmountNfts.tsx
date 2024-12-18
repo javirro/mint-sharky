@@ -10,7 +10,7 @@ import { abstractTestnet } from 'viem/chains'
 const ChooseAmountNfts = ({ setTxHash, setType }: CommonProps) => {
   console.log(setTxHash, setType)
   const { address, status } = useAccount()
-  const { data: client, isLoading, error } = useGlobalWalletSignerClient()
+  const { data: client } = useGlobalWalletSignerClient()
   const disabledButton = status !== 'connected' || !address
   const [nfts, setNfts] = useState(1)
 
