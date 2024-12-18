@@ -1,14 +1,14 @@
 import { useState } from 'react'
 import { CommonProps } from '../../routes/MintHome/MintHome'
 import { useAccount } from 'wagmi'
-
-import './ChooseAmountNfts.css'
 import { useGlobalWalletSignerClient } from '@abstract-foundation/agw-react'
 import { ABIS, CONTRACT_ADDRESS, PAY_TOKEN_ADDRESS } from '../../contracts/mint'
 import { abstractTestnet } from 'viem/chains'
 
+import './ChooseAmountNfts.css'
+
+
 const ChooseAmountNfts = ({ setTxHash, setType }: CommonProps) => {
-  console.log(setTxHash, setType)
   const { address, status } = useAccount()
   const { data: client } = useGlobalWalletSignerClient()
   const disabledButton = status !== 'connected' || !address
