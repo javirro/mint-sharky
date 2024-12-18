@@ -6,6 +6,7 @@ import { AbstractWalletProvider } from '@abstract-foundation/agw-react'
 function App() {
   const config = {
     testnet: true, // Required
+    rpc:'https://api.testnet.abs.xyz',
     // Optionally, provide your own RPC URL (learn more: https://viem.sh/docs/clients/transports/http.html)
     // transport: http("https://your.abstract.node.example.com/rpc") //Optional
   }
