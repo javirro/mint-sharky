@@ -50,6 +50,7 @@ const HowManynfts = ({ setTxHash, setType }: CommonProps) => {
     } catch (error) {
       console.error('Error minting NFTs', error)
       setType('error')
+      setTxHash('error')
     }
   }
 

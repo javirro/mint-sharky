@@ -8,3 +8,11 @@
   background-color: black;
   padding-bottom: var(--s40);
 }
+
+.mint-nft-btn {
+  transition: all 0.3s ease;
+}
+
+.mint-nft-btn:hover {
+  transform: scale(1.1);
+}

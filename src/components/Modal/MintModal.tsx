@@ -20,7 +20,11 @@ const MintModal = ({ txHash, type, setTxHash }: MintModalProps) => {
           </button>
         </div>
         <div className="message">
-          <p>{type === 'success' ? 'You have successfully minted your NFTs' : 'Error minting the NFTs'}</p>
+          <p>
+            {type === 'success'
+              ? 'You have successfully minted your NFTs'
+              : 'Review you have enough balance to afford the operation and check your browser configuration to allow pop-ups from this page because otherwise abstract global wallet could fail.'}
+          </p>
         </div>
         <div className="tx-hash">
           {type === 'success' ? (
@@ -28,7 +32,7 @@ const MintModal = ({ txHash, type, setTxHash }: MintModalProps) => {
               Click to see transaction
             </a>
           ) : (
-            <span>Please, try again or contact support.</span>
+            null
           )}
         </div>
       </div>

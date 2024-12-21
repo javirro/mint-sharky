@@ -40,6 +40,7 @@ const ComingSoon = ({ setTxHash, setType }: CommonProps) => {
     } catch (error) {
       console.error('Error minting NFTs', error)
       setType('error')
+      setTxHash('error')
     }
   }
 
@@ -68,7 +69,7 @@ const ComingSoon = ({ setTxHash, setType }: CommonProps) => {
           </section>
         </div>
       </div>
-      <button onClick={handleMintNft} disabled={disabledButton}>
+      <button onClick={handleMintNft} disabled={disabledButton} className='mint-nft-btn'>
         Mint NFT
       </button>
     </div>

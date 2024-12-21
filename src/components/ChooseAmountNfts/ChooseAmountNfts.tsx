@@ -49,8 +49,9 @@ const ChooseAmountNfts = ({ setTxHash, setType }: CommonProps) => {
       setTxHash(tx as string)
       setType('success')
     } catch (error) {
-      console.error('Error minting NFTs', error)
+      console.error('Error minting NFTs:', error)
       setType('error')
+      setTxHash('error')
     }
   }
   return (
