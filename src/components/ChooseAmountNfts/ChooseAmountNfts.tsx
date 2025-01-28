@@ -56,7 +56,7 @@ const ChooseAmountNfts = ({ setTxHash, setType }: CommonProps) => {
   }
   return (
     <div className="sharky-nfts-box">
-      <h4>How many NFTs are you minting?</h4>
+      <h4>Get DonSharky NFTs</h4>
       <div className="select-buttons">
         <button onClick={() => handleChangeNft('decrease')}>-</button>
         <span>{nfts}</span>

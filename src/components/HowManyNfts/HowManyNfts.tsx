@@ -56,19 +56,17 @@ const HowManynfts = ({ setTxHash, setType }: CommonProps) => {
 
   return (
     <section id="how-many-nfts">
-      <div className="grid">
-        <div className="left">
-          <h4>How many NFTs are you minting?</h4>
-          <div className="select-buttons">
-            <button onClick={() => handleChangeNft('decrease')}>-</button>
-            <span>{nfts}</span>
-            <button onClick={() => handleChangeNft('increase')}>+</button>
-          </div>
-          <button className="mint-nft-btn" onClick={handleMintNft} disabled={disabledButton}>
-            Mint NFT
-          </button>
+      <img src={images.howManynfts} alt="How Many Nfts" />
+      <div className="get-donsharky">
+        <strong>Get DonSharky NFTs</strong>
+        <div className="select-buttons">
+          <button onClick={() => handleChangeNft('decrease')}>-</button>
+          <span>{nfts}</span>
+          <button onClick={() => handleChangeNft('increase')}>+</button>
         </div>
-        <img src={images.howManynfts} alt="How Many Nfts" />
+        <button className="mint-nft-btn" onClick={handleMintNft} disabled={disabledButton}>
+          Mint NFT
+        </button>
       </div>
     </section>
   )

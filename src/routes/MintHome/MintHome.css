@@ -6,6 +6,9 @@
   min-height: 100vh;
   height: 100%;
   gap: var(--s80);
+  .banner {
+    width: 80%;
+  }
 }
 
 .grid {

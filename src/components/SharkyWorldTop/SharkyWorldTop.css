@@ -1,0 +1,43 @@
+#sharky-world-top {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: var(--s32);
+  width: 100%;
+  .header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: var(--s16);
+    width: 100%;
+    h1 {
+      font-family: Montserrat;
+      font-size: var(--s64);
+      font-weight: 800;
+      line-height: var(--s80);
+      letter-spacing: -0.06em;
+      text-align: center;
+      color: #f0f0f0;
+    }
+    p {
+      width: 60%;
+      font-family: Montserrat;
+      font-size: var(--s18);
+      font-weight: 500;
+      line-height: var(--s28);
+      letter-spacing: 0.06em;
+      text-align: center;
+      color: #ffffffb2;
+    }
+  }
+  .middle {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: var(--s32);
+    width: 100%;
+  }
+}

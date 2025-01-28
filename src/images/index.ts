@@ -10,9 +10,7 @@ import redSharkLeft from './redSharkLeft.svg'
 import redSharkRight from './redSharkRight.svg'
 import yellowSharkLeft from './yellowSharkLeft.svg'
 import yellowSharkTop from './yellowSharkTop.svg'
-import redSharkSlide from './redSharkSlide.svg'
-import purpleSharkSlide from './purpleSharkSlide.svg'
-import blackSharkSlide from './blackSharkSlide.svg'
+
 
 export const images = {
   logoSharky,
@@ -33,8 +31,3 @@ export const sharkRow = {
   yellowSharkTop,
 }
 
-export const slideShowImgs = {
-  redSharkSlide,
-  purpleSharkSlide,
-  blackSharkSlide,
-}

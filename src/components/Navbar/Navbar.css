@@ -6,9 +6,9 @@
   align-items: center;
   padding-top: var(--s32);
   .content {
-    width: 88%;
+    width: 30%;
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
     border-radius: 65px;
     padding: var(--s12);
@@ -34,7 +34,7 @@
       align-items: center;
       gap: var(--s24);
       .links {
-        color: white;
+        color: #F0F0F0;
         font-weight: 700;
         font-size: var(--s14);
         line-height: var(--s18);
@@ -42,6 +42,12 @@
       }
       .links:hover {
         color: var(--yellow);
+      }
+      .links.active {
+        border-radius: 30px;
+        background: var(--yellow);
+        padding: var(--s12);
+        color: #000000;
       }
     }
     .right {

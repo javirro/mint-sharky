@@ -1,17 +1,30 @@
-import { slideShowImgs } from '../../images'
+import { slideShowImgs } from '../../images/slideShowImages'
+
 import './SharksSlideShow.css'
 
 const SharksSlideshow = () => {
-  const { redSharkSlide, purpleSharkSlide, blackSharkSlide } = slideShowImgs
-  const images = [redSharkSlide, blackSharkSlide, purpleSharkSlide, redSharkSlide, purpleSharkSlide]
+  const { img1, img2, img3, img4 } = slideShowImgs
+  const images = [img1, img2, img3, img4]
+  const titles = ['Common', 'Rare', 'Super Rare', 'Epic']
+  const points = ['(≤ 80 SK Points)', '(81-110 SK Points)', '(111-150 SK Points)', '(151-190 SK Points)']
+  const texts = [
+    'Every revolution begins with a visionary. Today, you start your journey to greatness',
+    'You are rising as a leader in the making. Your impact is becoming unstoppable',
+    "Your achievements echo as an example. You're leaving a mark no one can erase",
+    'You are the architect of your destiny, a pioneer reshaping the game forever',
+  ]
   return (
     <div className="slideshow-box">
       <div className="slideshow">
         {images.map((img, index) => (
-          <img key={index} src={img} alt="shark" className="slide" />
-        ))}
-        {images.map((img, index) => (
-          <img key={`duplicated-${index}`} src={img} alt="shark" className="slide" />
+          <article>
+            <div className="title">
+              <strong>{titles[index]}</strong>
+              <span>{points[index]}</span>
+            </div>
+            <img key={index} src={img} alt="shark" className="slide" />
+            <p>{texts[index]}</p>
+          </article>
         ))}
       </div>
     </div>

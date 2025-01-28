@@ -1,0 +1,8 @@
+#sharky-world-collection{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: var(--s32);
+  width: 100%;
+}

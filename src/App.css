@@ -6,7 +6,7 @@
   flex-direction: column;
   justify-content: flex-start;
   background-color: black;
-  padding-bottom: var(--s40);
+  overflow-x: hidden;
 }
 
 .mint-nft-btn {
@@ -15,4 +15,24 @@
 
 .mint-nft-btn:hover {
   transform: scale(1.1);
+}
+
+h3 {
+  font-family: Montserrat;
+  font-size: var(--s40);
+  font-weight: 700;
+  line-height: var(--s48);
+  letter-spacing: -0.06em;
+  text-align: center;
+  color: #f0f0f0;
+}
+
+h5 {
+  font-family: Montserrat;
+  font-size: var(--s28);
+  font-weight: 800;
+  line-height: var(--s32);
+  letter-spacing: -0.06em;
+  text-align: center;
+  color: #f0f0f0;
 }
