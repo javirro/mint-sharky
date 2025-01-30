@@ -1,4 +1,4 @@
-import { SCAN_ADDRESS_URL } from '../../contracts/mint'
+import { SCAN_ADDRESS_URL } from '../../contracts/addresses'
 import './MintModal.css'
 
 interface MintModalProps {
@@ -31,9 +31,7 @@ const MintModal = ({ txHash, type, setTxHash }: MintModalProps) => {
             <a href={`${SCAN_ADDRESS_URL}${txHash}`} target="_blank" rel="noreferrer">
               Click to see transaction
             </a>
-          ) : (
-            null
-          )}
+          ) : null}
         </div>
       </div>
     </div>

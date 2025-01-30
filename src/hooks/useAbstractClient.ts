@@ -1,5 +1,5 @@
 import { useAbstractClient } from '@abstract-foundation/agw-react'
-import { PAY_TOKEN_ADDRESS, ABIS, CONTRACT_ADDRESS } from '../contracts/mint'
+import { ABIS, CONTRACT_ADDRESS, USDT_ADDRESS } from '../contracts/addresses'
 
 const useAbstractClientFunctions = (amount: bigint) => {
   const { data: abstractClient } = useAbstractClient()
@@ -8,7 +8,7 @@ const useAbstractClientFunctions = (amount: bigint) => {
     if (abstractClient) {
       try {
         const txApprove = await abstractClient.writeContract({
-          address: PAY_TOKEN_ADDRESS,
+          address: USDT_ADDRESS as `0x${string}`,
           abi: ABIS.token,
           functionName: 'approve',
           args: [CONTRACT_ADDRESS, amount],

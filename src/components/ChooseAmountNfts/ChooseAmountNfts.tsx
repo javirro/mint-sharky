@@ -5,8 +5,10 @@ import { useGlobalWalletSignerClient } from '@abstract-foundation/agw-react'
 import { abstractTestnet } from 'viem/chains'
 import { IS_MINT_ENABLE, openLinkWhitelist } from '../../constants'
 import { USDT_ADDRESS, ABIS, CONTRACT_ADDRESS } from '../../contracts/addresses'
+import { images } from '../../images'
 
 import './ChooseAmountNfts.css'
+
 
 const ChooseAmountNfts = ({ setTxHash, setType }: CommonProps) => {
   const { address, status } = useAccount()
@@ -56,6 +58,7 @@ const ChooseAmountNfts = ({ setTxHash, setType }: CommonProps) => {
   }
   return (
     <div className="sharky-nfts-box">
+      <img src={images.howManynfts} alt="How Many Nfts" />
       <h4>Get DonSharky NFTs</h4>
       <div className="select-buttons">
         <button onClick={() => handleChangeNft('decrease')}>-</button>
