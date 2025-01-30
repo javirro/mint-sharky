@@ -41,3 +41,20 @@
     width: 100%;
   }
 }
+
+@media (max-width: 768px) {
+  #sharky-world-top {
+    padding: var(--s16);
+    .header {
+      h1 {
+        font-size: var(--s32);
+        line-height: var(--s40);
+      }
+      p {
+        width: 100%;
+        font-size: var(--s14);
+        line-height: var(--s24);
+      }
+    }
+  }
+}

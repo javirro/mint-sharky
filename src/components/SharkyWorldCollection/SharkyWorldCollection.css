@@ -6,3 +6,10 @@
   gap: var(--s32);
   width: 100%;
 }
+
+@media (max-width: 768px) {
+  #sharky-world-collection {
+    padding: var(--s16);
+  }
+  
+}

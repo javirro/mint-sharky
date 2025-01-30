@@ -1,7 +1,9 @@
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
-import './App.css'
 import MintHome from './routes/MintHome/MintHome'
 import { AbstractWalletProvider } from '@abstract-foundation/agw-react'
+
+import './App.css'
+
 
 function App() {
   const config = {

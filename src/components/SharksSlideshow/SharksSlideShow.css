@@ -77,12 +77,36 @@
 
 @media (max-width: 768px) {
   .slideshow-box {
-    height: calc(260 * 100vw / 390);
+    height: calc(400 * 100vw / 390);
     .slideshow {
       gap: var(--s24);
       animation-duration: 30s;
-      img {
-        width: calc(190 * 100vw / 390);
+
+      article {
+        width: calc(240 * 100vw / 390);
+        height: 100%;
+        flex-wrap: nowrap;
+        img {
+          width: 100%;
+          min-width:  calc(240 * 100vw / 390);
+          height: calc(240 * 100vw / 390);
+          aspect-ratio: 1/1;
+        }
+        .title {
+          strong {
+            font-size: var(--s16);
+            line-height: var(--s24);
+          }
+          span {
+            font-size: var(--s14);
+            line-height: var(--s24);
+          }
+        }
+        p {
+          width: 100%;
+          font-size: var(--s14);
+          line-height: var(--s24);
+        }
       }
     }
   }

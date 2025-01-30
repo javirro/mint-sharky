@@ -1,83 +1,140 @@
-#get-access-to{
+#get-access-to {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: var(--s32);
+  width: 100%;
+  .bento {
     display: flex;
-    justify-content: center;
-    align-items: center;
     flex-direction: column;
-    gap: var(--s32);
-    .bento {
-      display: flex;
-      flex-direction: column;
+    gap: var(--s12);
+    width: 90%;
+    strong {
+      font-family: Montserrat;
+      font-size: var(--s40);
+      font-weight: 700;
+      line-height: var(--s48);
+      letter-spacing: -0.06em;
+      text-align: left;
+      color: #f0f0f0;
+    }
+    span {
+      font-family: Montserrat;
+      font-size: var(--s14);
+      font-weight: 600;
+      line-height: var(--s24);
+      letter-spacing: -0.06em;
+      text-align: left;
+      color: #f0f0f0cc;
+    }
+    .upper-row {
+      display: grid;
+      grid-template-columns: 44% 55%;
+      width: 100%;
       gap: var(--s12);
-      width: 90%;
+      .box-1 {
+        display: flex;
+        flex-direction: column;
+        gap: var(--s12);
+        justify-content: center;
+        padding: var(--s12) var(--s24);
+        align-items: center;
+        background: #942c2d;
+        border-radius: 12px;
+      }
+      .box-2 {
+        display: flex;
+        flex-direction: column;
+        gap: var(--s12);
+        padding: var(--s16) var(--s24);
+        background: #001419;
+        border-radius: 12px;
+        img {
+          margin-bottom: 10px;
+        }
+      }
+    }
+    .lower-row {
+      display: grid;
+      grid-template-columns: 55% 44%;
+      width: 100%;
+      gap: var(--s12);
+      .box-3 {
+        display: flex;
+        flex-direction: column;
+        gap: var(--s14);
+        padding: var(--s16) var(--s24);
+        background: #001419;
+        border-radius: 12px;
+      }
+      .box-4 {
+        display: flex;
+        flex-direction: column;
+        gap: var(--s12);
+        justify-content: flex-start;
+        padding: var(--s12) var(--s24);
+        align-items: center;
+        background: #001419;
+        border-radius: 12px;
+      }
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  #get-access-to {
+    width: 100%;
+    max-width: 100vw;
+    .bento {
+      width: 100%;
+      padding: var(--s12);
+      max-width: 100vw;
       strong {
-        font-family: Montserrat;
-        font-size: var(--s40);
-        font-weight: 700;
-        line-height: var(--s48);
-        letter-spacing: -0.06em;
-        text-align: left;
-        color: #F0F0F0;
+        font-size: var(--s32);
+        line-height: var(--s40);
       }
       span {
-        font-family: Montserrat;
         font-size: var(--s14);
-        font-weight: 600;
         line-height: var(--s24);
-        letter-spacing: -0.06em;
-        text-align: left;
-        color: #F0F0F0CC;
       }
       .upper-row {
-        display: grid;
-        grid-template-columns: 44% 55%;
-        width: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
         gap: var(--s12);
+        width: 100%;
+        flex-wrap: wrap;
+        max-width: 100vw;
         .box-1 {
-          display: flex;
-          flex-direction: column;
-          gap: var(--s12);
-          justify-content: center;
-          padding: var(--s12) var(--s24);
-          align-items: center;
-          background: #942C2D;
-          border-radius: 12px;
+          max-width: 100vw;
         }
         .box-2 {
-          display: flex;
-          flex-direction: column;
-          gap: var(--s12);
-          padding: var(--s16) var(--s24);
-          background: #001419;
-          border-radius: 12px;
-          img {
-            margin-bottom: 10px;
+          max-width: 100vw;
+          img{
+            width: 100%;
           }
         }
       }
       .lower-row {
-        display: grid;
-        grid-template-columns: 55% 44%;
-        width: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
         gap: var(--s12);
+        width: 100%;
+        flex-wrap: wrap;
+        max-width: 100vw;
         .box-3 {
-          display: flex;
-          flex-direction: column;
-          gap: var(--s14);
-          padding: var(--s16) var(--s24);
-          background: #001419;
-          border-radius: 12px;
+          width: 100%;
+          max-width: 100vw;
         }
         .box-4 {
-          display: flex;
-          flex-direction: column;
-          gap: var(--s12);
-          justify-content: flex-start;
-          padding: var(--s12) var(--s24);
-          align-items: center;
-          background: #001419;
-          border-radius: 12px;
+          width: 100%;
+          max-width: 100vw;
         }
       }
-
     }
+  }
 }

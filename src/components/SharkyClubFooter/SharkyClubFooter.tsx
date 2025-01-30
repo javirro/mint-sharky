@@ -6,11 +6,11 @@ import './SharkyClubFooter.css'
 const SharkyClubFooter = ({ setTxHash, setType }: CommonProps) => {
   return (
     <section id="sharky-club-footer">
-      <img src={footerBannerImgs.footerBanner} alt="Sharky Club Footer" />
+      <img src={footerBannerImgs.footerBanner} alt="Sharky Club Footer" className='eeuu-banner' />
       <section className="yellow-bg">
         <div className="upper">
           <p>Join us as we create innovative IP, redefine entrepreneurship in Web3, and build a community that will make a real-world impact</p>
-          <button>Get whitelist</button>
+          <button className='mint-nft-btn'>Get whitelist</button>
         </div>
         <HowManynfts setTxHash={setTxHash} setType={setType} />
         <strong className="big-word">SHARKY CLUB</strong>

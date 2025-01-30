@@ -9,6 +9,29 @@
   .banner {
     width: 80%;
   }
+  .yellow-btn {
+    width: calc(450 * 100vw / 1440);
+    border-radius: var(--s32);
+    border: none;
+    padding: var(--s12) var(--s24);
+    background-color: var(--yellow);
+    color: #022731;
+    box-shadow:
+      0px 8px 40.3px 0px #ffc55052,
+      0px 2px 4px 0px #00000054,
+      0px 8px 8.3px 0px #ffe1a3 inset,
+      0px -6px 10.7px 0px #00000040 inset;
+    font-size: var(--s16);
+    font-weight: 600;
+    line-height: var(--s20);
+    letter-spacing: 0.02em;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    &:hover {
+      transform: scale(1.1);
+    }
+  }
 }
 
 .grid {
@@ -24,7 +47,13 @@
 
 @media (max-width: 768px) {
   .page {
-    padding: var(--s16);
+    gap: var(--s32);
+    .banner {
+      width: 100%;
+    }
+    .yellow-btn {
+      width: 90%;
+    }
   }
   .grid {
     display: flex;

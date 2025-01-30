@@ -26,3 +26,17 @@
     color: #ffffffb2;
   }
 }
+
+@media (max-width: 768px) {
+  .header-for-section {
+    h5 {
+      font-size: var(--s18);
+      line-height: var(--s24);
+    }
+    p {
+      width: 100%;
+      font-size: var(--s14);
+      line-height: var(--s24);
+    }
+  }
+}

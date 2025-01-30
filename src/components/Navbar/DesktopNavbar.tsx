@@ -22,13 +22,13 @@ const DesktopNavbar = () => {
     <nav id="desktop-nav">
       <div className="content">
         <div className="middle">
-          <NavLink to="/about" className="links">
+          <NavLink to="/about" className="links disabled">
             Sharky World
           </NavLink>
           <NavLink to="/" className="links">
             Sharky club
           </NavLink>
-          <NavLink to="/documents" className="links">
+          <NavLink to="/documents" className="links disabled">
             Sharky labs
           </NavLink>
         </div>

@@ -53,7 +53,7 @@
         font-weight: 700;
       }
       span {
-        color:  #022731;
+        color: #022731;
         font-size: var(--s32);
         font-weight: 700;
       }
@@ -63,19 +63,20 @@
 
 @media (max-width: 768px) {
   #how-many-nfts {
-    .grid {
+    .get-donsharky {
       display: flex;
-      flex-direction: column-reverse;
+      flex-direction: column;
       justify-content: center;
       align-items: center;
-    }
-    .left {
       .select-buttons {
-        width: 100%;
+        width: 90%;
       }
       .mint-nft-btn {
-        width: 100%;
+        width: 90%;
       }
     }
+
+   
+
   }
 }

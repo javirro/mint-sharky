@@ -10,7 +10,7 @@ const SharkyShop = () => {
         subtitle="Web3 brand with a powerful culture and mission. We will be the best native web3 brand, connecting physical & digital products."
       />
       <div className="container">
-        <div className="grid">
+        <div className="grid-shop">
           <article>
             <img src={sharkyShopImages.img1} alt="Sharky Shop 1" />
             <strong>Art</strong>
@@ -25,6 +25,7 @@ const SharkyShop = () => {
           </article>
         </div>
       </div>
+      <button className="yellow-btn">Start shopping</button>
     </section>
   )
 }
