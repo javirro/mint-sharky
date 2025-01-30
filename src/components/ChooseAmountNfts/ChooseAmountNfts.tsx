@@ -2,12 +2,12 @@ import React, { useState } from 'react'
 import { CommonProps } from '../../routes/MintHome/MintHome'
 import { useHandleConnection } from '../../hooks/useAbstract'
 import { useGlobalWalletSignerClient } from '@abstract-foundation/agw-react'
-import { abstractTestnet } from 'viem/chains'
 import { IS_MINT_ENABLE, openLinkWhitelist } from '../../constants'
-import { USDT_ADDRESS, ABIS, CONTRACT_ADDRESS } from '../../contracts/addresses'
+import { handleApproveParams, handleMintParams } from '../../contracts/handleApproveMint'
 import { images } from '../../images'
 
 import './ChooseAmountNfts.css'
+
 
 const ChooseAmountNfts = ({ setTxHash, setType }: CommonProps) => {
   const { login, address } = useHandleConnection()
@@ -25,27 +25,16 @@ const ChooseAmountNfts = ({ setTxHash, setType }: CommonProps) => {
 
   const handleMintNft = async () => {
     try {
-      const txApprove = await client?.writeContract({
-        address: USDT_ADDRESS as `0x${string}`,
-        abi: ABIS.token,
-        functionName: 'approve',
-        args: [CONTRACT_ADDRESS, '10000000000000'],
-        chain: abstractTestnet,
-      })
+      const approveParams = handleApproveParams(nfts)
+      const txApprove = await client?.writeContract(approveParams)
       console.log('Tx approve', txApprove)
     } catch (error) {
       console.error('Error approving tokens', error)
     }
 
     try {
-      const tx = await client?.writeContract({
-        address: CONTRACT_ADDRESS as `0x${string}`,
-        abi: ABIS.mint,
-        functionName: 'mintPublic',
-        args: [nfts],
-        chain: abstractTestnet,
-        gas: BigInt(600000),
-      })
+      const mintPublicParams = handleMintParams(nfts)
+      const tx = await client?.writeContract(mintPublicParams)
       console.log('Tx minted', tx)
       setTxHash(tx as string)
       setType('success')
@@ -55,6 +44,7 @@ const ChooseAmountNfts = ({ setTxHash, setType }: CommonProps) => {
       setTxHash('error')
     }
   }
+
   return (
     <div className="sharky-nfts-box">
       <img src={images.howManynfts} alt="How Many Nfts" />

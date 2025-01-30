@@ -12,7 +12,6 @@ import SharkyWorldTop from '../../components/SharkyWorldTop/SharkyWorldTop'
 
 import './MintHome.css'
 
-
 export interface CommonProps {
   setTxHash: (txHash: string) => void
   setType: (type: 'success' | 'error') => void
@@ -30,7 +29,7 @@ const MintHome = () => {
       <Manifesto />
       <KeyBenefits />
       <EvolutionOfSharky />
-      <SharkyWorldCollection />
+      <SharkyWorldCollection setTxHash={setTxHash} setType={setType}/>
       <SharkyShop />
       <SharkyClubFooter setTxHash={setTxHash} setType={setType} />
     </section>

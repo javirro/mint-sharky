@@ -2,12 +2,12 @@ import { useState } from 'react'
 import { images } from '../../images'
 import { useGlobalWalletSignerClient } from '@abstract-foundation/agw-react'
 import { useHandleConnection } from '../../hooks/useAbstract'
-import { abstractTestnet } from 'viem/chains'
 import { CommonProps } from '../../routes/MintHome/MintHome'
 import { IS_MINT_ENABLE, openLinkWhitelist } from '../../constants'
-import { USDT_ADDRESS, ABIS, CONTRACT_ADDRESS } from '../../contracts/addresses'
+import { handleApproveParams, handleMintParams } from '../../contracts/handleApproveMint'
 
 import './HowManyNfts.css'
+
 
 const HowManynfts = ({ setTxHash, setType }: CommonProps) => {
   const { login, address } = useHandleConnection()
@@ -24,32 +24,21 @@ const HowManynfts = ({ setTxHash, setType }: CommonProps) => {
 
   const handleMintNft = async () => {
     try {
-      const txApprove = await client?.writeContract({
-        address: USDT_ADDRESS as `0x${string}`,
-        abi: ABIS.token,
-        functionName: 'approve',
-        args: [CONTRACT_ADDRESS, '10000000000000'],
-        chain: abstractTestnet,
-      })
+      const approveParams = handleApproveParams(nfts)
+      const txApprove = await client?.writeContract(approveParams)
       console.log('Tx approve', txApprove)
     } catch (error) {
       console.error('Error approving tokens', error)
     }
 
     try {
-      const tx = await client?.writeContract({
-        address: CONTRACT_ADDRESS as `0x${string}`,
-        abi: ABIS.mint,
-        functionName: 'mintPublic',
-        args: [nfts],
-        chain: abstractTestnet,
-        gas: BigInt(600000),
-      })
+      const mintPublicParams = handleMintParams(nfts)
+      const tx = await client?.writeContract(mintPublicParams)
       console.log('Tx minted', tx)
       setTxHash(tx as string)
       setType('success')
     } catch (error) {
-      console.error('Error minting NFTs', error)
+      console.error('Error minting NFTs:', error)
       setType('error')
       setTxHash('error')
     }
