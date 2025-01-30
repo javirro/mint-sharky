@@ -7,7 +7,7 @@ import { CommonProps } from '../../routes/MintHome/MintHome'
 import { IS_MINT_ENABLE, openLinkWhitelist } from '../../constants'
 
 import './HowManyNfts.css'
-import { PAY_TOKEN_ADDRESS, ABIS, CONTRACT_ADDRESS } from '../../contracts/addresses'
+import { USDT_ADDRESS, ABIS, CONTRACT_ADDRESS } from '../../contracts/addresses'
 
 const HowManynfts = ({ setTxHash, setType }: CommonProps) => {
   const [nfts, setNfts] = useState(1)
@@ -25,7 +25,7 @@ const HowManynfts = ({ setTxHash, setType }: CommonProps) => {
   const handleMintNft = async () => {
     try {
       const txApprove = await client?.writeContract({
-        address: PAY_TOKEN_ADDRESS as `0x${string}`,
+        address: USDT_ADDRESS as `0x${string}`,
         abi: ABIS.token,
         functionName: 'approve',
         args: [CONTRACT_ADDRESS, '10000000000000'],

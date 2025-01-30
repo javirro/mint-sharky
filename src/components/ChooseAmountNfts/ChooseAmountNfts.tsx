@@ -4,9 +4,9 @@ import { useAccount } from 'wagmi'
 import { useGlobalWalletSignerClient } from '@abstract-foundation/agw-react'
 import { abstractTestnet } from 'viem/chains'
 import { IS_MINT_ENABLE, openLinkWhitelist } from '../../constants'
+import { USDT_ADDRESS, ABIS, CONTRACT_ADDRESS } from '../../contracts/addresses'
 
 import './ChooseAmountNfts.css'
-import { PAY_TOKEN_ADDRESS, ABIS, CONTRACT_ADDRESS } from '../../contracts/addresses'
 
 const ChooseAmountNfts = ({ setTxHash, setType }: CommonProps) => {
   const { address, status } = useAccount()
@@ -25,7 +25,7 @@ const ChooseAmountNfts = ({ setTxHash, setType }: CommonProps) => {
   const handleMintNft = async () => {
     try {
       const txApprove = await client?.writeContract({
-        address: PAY_TOKEN_ADDRESS as `0x${string}`,
+        address: USDT_ADDRESS as `0x${string}`,
         abi: ABIS.token,
         functionName: 'approve',
         args: [CONTRACT_ADDRESS, '10000000000000'],
