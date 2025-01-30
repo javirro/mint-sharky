@@ -2,11 +2,11 @@ import { useState } from 'react'
 import { CommonProps } from '../../routes/MintHome/MintHome'
 import { useAccount } from 'wagmi'
 import { useGlobalWalletSignerClient } from '@abstract-foundation/agw-react'
-import { ABIS, CONTRACT_ADDRESS, PAY_TOKEN_ADDRESS } from '../../contracts/mint'
 import { abstractTestnet } from 'viem/chains'
 import { IS_MINT_ENABLE, openLinkWhitelist } from '../../constants'
 
 import './ChooseAmountNfts.css'
+import { PAY_TOKEN_ADDRESS, ABIS, CONTRACT_ADDRESS } from '../../contracts/addresses'
 
 const ChooseAmountNfts = ({ setTxHash, setType }: CommonProps) => {
   const { address, status } = useAccount()

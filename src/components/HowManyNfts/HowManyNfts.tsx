@@ -3,11 +3,11 @@ import { images } from '../../images'
 import { useGlobalWalletSignerClient } from '@abstract-foundation/agw-react'
 import { useAccount } from 'wagmi'
 import { abstractTestnet } from 'viem/chains'
-import { ABIS, CONTRACT_ADDRESS, PAY_TOKEN_ADDRESS } from '../../contracts/mint'
 import { CommonProps } from '../../routes/MintHome/MintHome'
 import { IS_MINT_ENABLE, openLinkWhitelist } from '../../constants'
 
 import './HowManyNfts.css'
+import { PAY_TOKEN_ADDRESS, ABIS, CONTRACT_ADDRESS } from '../../contracts/addresses'
 
 const HowManynfts = ({ setTxHash, setType }: CommonProps) => {
   const [nfts, setNfts] = useState(1)

@@ -1,7 +1,8 @@
 import { Config } from 'wagmi'
 import { WriteContractMutateAsync } from 'wagmi/query'
 import { abstractTestnet } from 'wagmi/chains'
-import { ABIS } from './mint'
+import { ABIS } from './addresses'
+
 
 export const approve = async (
   writeContractAsync: WriteContractMutateAsync<Config, unknown>,
