@@ -1,7 +1,6 @@
 import { WriteContractMutateAsync } from 'wagmi/query'
-import { abstractTestnet } from 'viem/chains'
 import { Config } from 'wagmi'
-import { ABIS, CONTRACT_ADDRESS } from './addresses'
+import { ABIS, CONTRACT_ADDRESS, NETWORK } from './addresses'
 
 export const mintPublic = async (writeContractAsync: WriteContractMutateAsync<Config, unknown>, amount: number): Promise<`0x${string}`> => {
   const transactionApproveHash = await writeContractAsync({
@@ -9,7 +8,7 @@ export const mintPublic = async (writeContractAsync: WriteContractMutateAsync<Co
     abi: ABIS.mint,
     functionName: 'mintPublic',
     args: [amount],
-    chain: abstractTestnet,
+    chain: NETWORK,
   })
   return transactionApproveHash
 }

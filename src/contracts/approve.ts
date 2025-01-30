@@ -1,22 +1,20 @@
 import { Config } from 'wagmi'
 import { WriteContractMutateAsync } from 'wagmi/query'
-import { abstractTestnet } from 'wagmi/chains'
-import { ABIS } from './addresses'
-
+import { ABIS, NETWORK, USDT_DECIMALS } from './addresses'
 
 export const approve = async (
   writeContractAsync: WriteContractMutateAsync<Config, unknown>,
   tokenAddress: string,
   spender: string,
-  amount: string 
+  amount: string
 ): Promise<`0x${string}`> => {
-  const weiAmount = BigInt(+amount * 10 ** 18)
+  const weiAmount = BigInt(+amount * 10 ** USDT_DECIMALS)
   const transactionApproveHash = await writeContractAsync({
     address: tokenAddress as `0x${string}`,
     abi: ABIS.token,
     functionName: 'approve',
     args: [spender, weiAmount],
-    chain: abstractTestnet,
+    chain: NETWORK,
   })
   return transactionApproveHash
 }
