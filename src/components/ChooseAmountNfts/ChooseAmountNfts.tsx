@@ -1,6 +1,6 @@
-import { useState } from 'react'
+import React, { useState } from 'react'
 import { CommonProps } from '../../routes/MintHome/MintHome'
-import { useAccount } from 'wagmi'
+import { useHandleConnection } from '../../hooks/useAbstract'
 import { useGlobalWalletSignerClient } from '@abstract-foundation/agw-react'
 import { abstractTestnet } from 'viem/chains'
 import { IS_MINT_ENABLE, openLinkWhitelist } from '../../constants'
@@ -9,11 +9,10 @@ import { images } from '../../images'
 
 import './ChooseAmountNfts.css'
 
-
 const ChooseAmountNfts = ({ setTxHash, setType }: CommonProps) => {
-  const { address, status } = useAccount()
+  const { login, address } = useHandleConnection()
   const { data: client } = useGlobalWalletSignerClient()
-  const disabledButton = status !== 'connected' || !address
+  const disabledButton = !address
   const [nfts, setNfts] = useState(1)
 
   const handleChangeNft = (op: 'increase' | 'decrease') => {
@@ -66,16 +65,29 @@ const ChooseAmountNfts = ({ setTxHash, setType }: CommonProps) => {
         <button onClick={() => handleChangeNft('increase')}>+</button>
       </div>
       {IS_MINT_ENABLE ? (
-        <button className="mint-nft-btn" onClick={handleMintNft} disabled={disabledButton}>
-          Mint NFT
-        </button>
+        <>
+          {address && (
+            <button className="mint-nft-btn" onClick={handleMintNft} disabled={disabledButton}>
+              Mint NFT
+            </button>
+          )}
+          {!address && (
+            <button className="mint-nft-btn" onClick={login}>
+              Connect Wallet
+            </button>
+          )}
+        </>
       ) : (
-        <button className="mint-nft-btn" onClick={() => openLinkWhitelist()}>
-          Join Sharky World
-        </button>
+        <JoinSharkyWorld />
       )}
     </div>
   )
 }
 
 export default ChooseAmountNfts
+
+const JoinSharkyWorld: React.FC = () => (
+  <button className="mint-nft-btn" onClick={() => openLinkWhitelist()}>
+    Join Sharky World
+  </button>
+)
