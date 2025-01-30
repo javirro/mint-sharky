@@ -13,7 +13,7 @@ const HowManynfts = ({ setTxHash, setType }: CommonProps) => {
   const { login, address } = useHandleConnection()
   const [nfts, setNfts] = useState(1)
   const { data: client } = useGlobalWalletSignerClient()
-  const disabledButton = status !== 'connected' || !address
+  const disabledButton = !address
   const handleChangeNft = (op: 'increase' | 'decrease') => {
     if (op === 'increase') {
       setNfts(nfts + 1)

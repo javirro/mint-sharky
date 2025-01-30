@@ -1,10 +1,12 @@
 import { IS_MINT_ENABLE, openLinkWhitelist } from '../../constants'
+import { useHandleConnection } from '../../hooks/useAbstract'
 import HeaderForSection from '../common/HeaderForSection/HeaderForSection'
 import SharksSlideshow from '../SharksSlideshow/SharksSlideshow'
 
 import './SharkyWorldCollection.css'
 
 const SharkyWorldCollection = () => {
+  const { login, address } = useHandleConnection()
   return (
     <section id="sharky-world-collection">
       <HeaderForSection
@@ -14,11 +16,16 @@ const SharkyWorldCollection = () => {
       <SharksSlideshow />
       <div className="buttons-box">
         {IS_MINT_ENABLE ? (
-          <button className="yellow-btn">Mint NFT</button>
+          <>
+            {address && <button className="yellow-btn">Mint NFT</button>}
+            {!address && (
+              <button className="yellow-btn" onClick={login}>
+                Connect Wallet
+              </button>
+            )}
+          </>
         ) : (
-          <button className="yellow-btn" onClick={() => openLinkWhitelist()}>
-            Join Sharky World
-          </button>
+          <JoinSharkyWorld />
         )}
         {!IS_MINT_ENABLE && <span>Mint coming soon</span>}
       </div>
@@ -27,3 +34,9 @@ const SharkyWorldCollection = () => {
 }
 
 export default SharkyWorldCollection
+
+const JoinSharkyWorld: React.FC = () => (
+  <button className="yellow-btn" onClick={() => openLinkWhitelist()}>
+    Join Sharky World
+  </button>
+)
