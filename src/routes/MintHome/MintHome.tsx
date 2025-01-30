@@ -2,7 +2,7 @@ import { useState } from 'react'
 import MintModal from '../../components/Modal/MintModal'
 import DesktopNavbar from '../../components/Navbar/DesktopNavbar'
 import Manifesto from '../../components/Manifesto/Manifesto'
-import GetAccessTo from '../../components/GetAccessTo/GetAccessTo'
+import KeyBenefits from '../../components/GetAccessTo/KeyBenefits'
 import EvolutionOfSharky from '../../components/EvolutionOfSharky/EvolutionOfSharky'
 import SharkyShop from '../../components/SharkyShop/SharkyShop'
 import SharkyWorldCollection from '../../components/SharkyWorldCollection/SharkyWorldCollection'
@@ -28,7 +28,7 @@ const MintHome = () => {
       <img src={footerBannerImgs.beginBanner} alt="Sharky Club" className="banner" />
       <SharkyWorldTop setTxHash={setTxHash} setType={setType} />
       <Manifesto />
-      <GetAccessTo />
+      <KeyBenefits />
       <EvolutionOfSharky />
       <SharkyWorldCollection />
       <SharkyShop />

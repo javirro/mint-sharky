@@ -4,9 +4,9 @@ import { useAccount } from 'wagmi'
 import { useGlobalWalletSignerClient } from '@abstract-foundation/agw-react'
 import { ABIS, CONTRACT_ADDRESS, PAY_TOKEN_ADDRESS } from '../../contracts/mint'
 import { abstractTestnet } from 'viem/chains'
+import { IS_MINT_ENABLE, openLinkWhitelist } from '../../constants'
 
 import './ChooseAmountNfts.css'
-
 
 const ChooseAmountNfts = ({ setTxHash, setType }: CommonProps) => {
   const { address, status } = useAccount()
@@ -62,9 +62,15 @@ const ChooseAmountNfts = ({ setTxHash, setType }: CommonProps) => {
         <span>{nfts}</span>
         <button onClick={() => handleChangeNft('increase')}>+</button>
       </div>
-      <button className="mint-nft-btn" disabled={disabledButton} onClick={handleMintNft}>
-        Mint NFT
-      </button>
+      {IS_MINT_ENABLE ? (
+        <button className="mint-nft-btn" onClick={handleMintNft} disabled={disabledButton}>
+          Mint NFT
+        </button>
+      ) : (
+        <button className="mint-nft-btn" onClick={() => openLinkWhitelist()}>
+          Join Sharky World
+        </button>
+      )}
     </div>
   )
 }

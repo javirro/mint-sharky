@@ -74,6 +74,10 @@
           width: 80%;
         }
       }
+      .big-word {
+        font-size: calc(206 * 100vw / 1440);
+        line-height: 80px;
+      }
     }
   }
   

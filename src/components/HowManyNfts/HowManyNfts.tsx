@@ -5,6 +5,7 @@ import { useAccount } from 'wagmi'
 import { abstractTestnet } from 'viem/chains'
 import { ABIS, CONTRACT_ADDRESS, PAY_TOKEN_ADDRESS } from '../../contracts/mint'
 import { CommonProps } from '../../routes/MintHome/MintHome'
+import { IS_MINT_ENABLE, openLinkWhitelist } from '../../constants'
 
 import './HowManyNfts.css'
 
@@ -58,15 +59,21 @@ const HowManynfts = ({ setTxHash, setType }: CommonProps) => {
     <section id="how-many-nfts">
       <img src={images.howManynfts} alt="How Many Nfts" />
       <div className="get-donsharky">
-        <strong>Get DonSharky NFTs</strong>
+        <strong>Get sharky world NFT</strong>
         <div className="select-buttons">
           <button onClick={() => handleChangeNft('decrease')}>-</button>
           <span>{nfts}</span>
           <button onClick={() => handleChangeNft('increase')}>+</button>
         </div>
-        <button className="mint-nft-btn" onClick={handleMintNft} disabled={disabledButton}>
-          Mint NFT
-        </button>
+        {IS_MINT_ENABLE ? (
+          <button className="mint-nft-btn" onClick={handleMintNft} disabled={disabledButton}>
+            Mint NFT
+          </button>
+        ) : (
+          <button className="mint-nft-btn" onClick={() => openLinkWhitelist()}>
+            Join Sharky World
+          </button>
+        )}
       </div>
     </section>
   )

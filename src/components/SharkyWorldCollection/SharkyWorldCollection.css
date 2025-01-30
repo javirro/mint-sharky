@@ -5,6 +5,20 @@
   flex-direction: column;
   gap: var(--s32);
   width: 100%;
+  .buttons-box {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: var(--s12);
+    width: 100%;
+    span {
+      font-family: Montserrat;
+      font-size: var(--s18);
+      font-weight: 500;
+      color: #FFFFFFB2;
+    }
+  }
 }
 
 @media (max-width: 768px) {

@@ -1,3 +1,4 @@
+import { openLinkWhitelist } from '../../constants'
 import { sharkyShopImages } from '../../images/sharkyShop/images'
 import HeaderForSection from '../common/HeaderForSection/HeaderForSection'
 import './SharkyShop.css'
@@ -25,7 +26,9 @@ const SharkyShop = () => {
           </article>
         </div>
       </div>
-      <button className="yellow-btn">Start shopping</button>
+      <button className="yellow-btn" onClick={() => openLinkWhitelist()}>
+        Join Sharky World
+      </button>
     </section>
   )
 }
