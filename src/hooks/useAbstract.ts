@@ -6,6 +6,7 @@ export const useHandleConnection = () => {
   const { login, logout } = useLoginWithAbstract()
   const { address: addressSigner } = useGlobalWalletSignerAccount()
   const { address } = useAccount()
+
   return { login, logout, addressSigner, address }
 }
 

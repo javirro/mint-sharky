@@ -35,6 +35,20 @@
       font-weight: 700;
     }
   }
+  .buttons-box {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: var(--s12);
+    width: 100%;
+    span {
+      font-family: Montserrat;
+      font-size: var(--s18);
+      font-weight: 500;
+      color: #FFFFFFB2 !important;
+    }
+  }
   .mint-nft-btn {
     width: 30%;
     background-color: var(--yellow);

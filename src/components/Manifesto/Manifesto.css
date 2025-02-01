@@ -6,6 +6,16 @@
   width: 100%;
   gap: 32px;
   padding: 20px;
+  p {
+    width: 75%;
+    font-family: Montserrat;
+    font-size: var(--s14);
+    font-weight: 500;
+    line-height: var(--s24);
+    letter-spacing: 0.02em;
+    text-align: center;
+    color: #ffffffb2;
+  }
   .grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -36,6 +46,14 @@
         line-height: 24px;
         text-align: center;
       }
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  #manifesto {
+    p {
+      width: 100%;
     }
   }
 }

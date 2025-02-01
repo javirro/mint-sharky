@@ -8,7 +8,6 @@ import { images } from '../../images'
 
 import './ChooseAmountNfts.css'
 
-
 const ChooseAmountNfts = ({ setTxHash, setType }: CommonProps) => {
   const { login, address } = useHandleConnection()
   const { data: client } = useGlobalWalletSignerClient()
@@ -54,6 +53,7 @@ const ChooseAmountNfts = ({ setTxHash, setType }: CommonProps) => {
         <span>{nfts}</span>
         <button onClick={() => handleChangeNft('increase')}>+</button>
       </div>
+      <div className="buttons-box">
       {IS_MINT_ENABLE ? (
         <>
           {address && (
@@ -70,6 +70,8 @@ const ChooseAmountNfts = ({ setTxHash, setType }: CommonProps) => {
       ) : (
         <JoinSharkyWorld />
       )}
+      {!IS_MINT_ENABLE && <span>Mint coming soon</span>}
+      </div>
     </div>
   )
 }
