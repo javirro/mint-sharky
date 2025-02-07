@@ -14,7 +14,7 @@ const tesnetId = 11124
 const testnetNFTPrice = NFT_USD_PRICE * 10 ** testnetUsdtDecimals
 
 //* Mainnet data
-const mainnetContract = '0x'
+const mainnetContract = '0x6F25359E839Cc53F3a3bD781aC860e023dae515b'
 const mainnetUsdt = '0x0709F39376dEEe2A2dfC94A58EdEb2Eb9DF012bD'
 const mainnetUsdtDecimals = 6
 const mainnetExplorer = 'https://abscan.org/tx/'
