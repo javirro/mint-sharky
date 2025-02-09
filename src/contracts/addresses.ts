@@ -3,7 +3,7 @@ import { IS_PRO } from '../constants'
 import mintAbi from './mintAbi.json'
 import tokenAbi from './tokenAbi.json'
 
-const NFT_USD_PRICE = 100 // 100$
+const NFT_USD_PRICE = 0.00002 // 100$
 
 //* Tesnet data
 const tesnetContract = '0xD4f7df8AFc4411d8B02A675dEe4f613158fFA5b2'
@@ -15,7 +15,7 @@ const testnetNFTPrice = NFT_USD_PRICE * 10 ** testnetUsdtDecimals
 
 //* Mainnet data
 const mainnetContract = '0x6F25359E839Cc53F3a3bD781aC860e023dae515b'
-const mainnetUsdt = '0x0709F39376dEEe2A2dfC94A58EdEb2Eb9DF012bD'
+const mainnetUsdt = '0x84A71ccD554Cc1b02749b35d22F684CC8ec987e1'
 const mainnetUsdtDecimals = 6
 const mainnetExplorer = 'https://abscan.org/tx/'
 const mainnetId = 2741
