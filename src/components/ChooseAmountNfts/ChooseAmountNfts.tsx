@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { CommonProps } from '../../routes/MintHome/MintHome'
 import { useHandleConnection } from '../../hooks/useAbstract'
-import { useGlobalWalletSignerClient } from '@abstract-foundation/agw-react'
+import { useAbstractClient } from '@abstract-foundation/agw-react'
 import { IS_MINT_ENABLE, openLinkWhitelist } from '../../constants'
 import { handleApproveParams, handleMintParams } from '../../contracts/handleApproveMint'
 import { images } from '../../images'
@@ -10,7 +10,9 @@ import './ChooseAmountNfts.css'
 
 const ChooseAmountNfts = ({ setTxHash, setType }: CommonProps) => {
   const { login, address } = useHandleConnection()
-  const { data: client } = useGlobalWalletSignerClient()
+  console.log("address", address)
+  // const { data: client } = useGlobalWalletSignerClient()
+  const { data: abstractClient } = useAbstractClient();
   const disabledButton = !address
   const [nfts, setNfts] = useState(1)
 
@@ -25,7 +27,7 @@ const ChooseAmountNfts = ({ setTxHash, setType }: CommonProps) => {
   const handleMintNft = async () => {
     try {
       const approveParams = handleApproveParams(nfts)
-      const txApprove = await client?.writeContract(approveParams)
+      const txApprove = await abstractClient?.writeContract(approveParams)
       console.log('Tx approve', txApprove)
     } catch (error) {
       console.error('Error approving tokens', error)
@@ -33,7 +35,7 @@ const ChooseAmountNfts = ({ setTxHash, setType }: CommonProps) => {
 
     try {
       const mintPublicParams = handleMintParams(nfts)
-      const tx = await client?.writeContract(mintPublicParams)
+      const tx = await abstractClient?.writeContract(mintPublicParams)
       console.log('Tx minted', tx)
       setTxHash(tx as string)
       setType('success')
