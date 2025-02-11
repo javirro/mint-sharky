@@ -1,6 +1,8 @@
 import { Config } from 'wagmi'
 import { WriteContractMutateAsync } from 'wagmi/query'
-import { ABIS, NETWORK, USDT_DECIMALS } from './addresses'
+import { ABIS, CONTRACT_ADDRESS, NETWORK, NFT_PRICE, USDT_DECIMALS } from './addresses'
+
+import { ethers } from "ethers"
 
 export const approve = async (
   writeContractAsync: WriteContractMutateAsync<Config, unknown>,
@@ -18,3 +20,25 @@ export const approve = async (
   })
   return transactionApproveHash
 }
+
+
+export const approveEncode =  (nftAmount: number): string => {
+// Define the ERC-20 ABI fragment for the "approve" function
+const erc20Abi = ["function approve(address spender, uint256 amount)"];
+
+// Create an Interface instance
+const iface = new ethers.Interface(erc20Abi);
+
+// Define parameters
+const spender: string = CONTRACT_ADDRESS; // Replace with actual spender address
+  const usdtAmountWei: bigint = BigInt(nftAmount * NFT_PRICE)
+
+
+// Encode the function call
+const data: string = iface.encodeFunctionData("approve", [spender, usdtAmountWei]);
+
+console.log("Encoded data:", data);
+return data
+}
+
+

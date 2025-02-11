@@ -1,10 +1,12 @@
 import { useState } from 'react'
 import { images } from '../../images'
-import { useGlobalWalletSignerClient } from '@abstract-foundation/agw-react'
+import { useAbstractClient } from '@abstract-foundation/agw-react'
 import { useHandleConnection } from '../../hooks/useAbstract'
 import { CommonProps } from '../../routes/MintHome/MintHome'
 import { IS_MINT_ENABLE, openLinkWhitelist } from '../../constants'
-import { handleApproveParams, handleMintParams } from '../../contracts/handleApproveMint'
+import { CONTRACT_ADDRESS, USDT_ADDRESS } from '../../contracts/addresses'
+import { approveEncode } from '../../contracts/approve'
+import { encodeMintPublic } from '../../contracts/mint'
 
 import './HowManyNfts.css'
 
@@ -12,28 +14,32 @@ import './HowManyNfts.css'
 const HowManynfts = ({ setTxHash, setType }: CommonProps) => {
   const { login, address } = useHandleConnection()
   const [nfts, setNfts] = useState(1)
-  const { data: client } = useGlobalWalletSignerClient()
+  const { data: abstractClient } = useAbstractClient();
   const disabledButton = !address
   const handleChangeNft = (op: 'increase' | 'decrease') => {
     if (op === 'increase') {
       setNfts(nfts + 1)
     } else {
-      setNfts((prev) => (prev > 1 ? prev - 1 : prev))
+      setNfts((prev: number) => (prev > 1 ? prev - 1 : prev))
     }
   }
 
   const handleMintNft = async () => {
-    try {
-      const approveParams = handleApproveParams(nfts)
-      const txApprove = await client?.writeContract(approveParams)
+  try {
+      const txApprove = await abstractClient?.sendTransaction({
+        to: USDT_ADDRESS as `0x${string}` ,
+        data: approveEncode(nfts) as `0x${string}`
+      })
       console.log('Tx approve', txApprove)
     } catch (error) {
       console.error('Error approving tokens', error)
     }
 
     try {
-      const mintPublicParams = handleMintParams(nfts)
-      const tx = await client?.writeContract(mintPublicParams)
+      const tx= await abstractClient?.sendTransaction({
+        to: CONTRACT_ADDRESS as `0x${string}` ,
+        data: encodeMintPublic(nfts) as `0x${string}`
+      })
       console.log('Tx minted', tx)
       setTxHash(tx as string)
       setType('success')
