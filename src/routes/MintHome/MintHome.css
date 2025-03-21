@@ -6,6 +6,7 @@
   min-height: 100vh;
   height: 100%;
   gap: var(--s80);
+  overflow-y: hidden;
   .banner {
     width: 80%;
   }

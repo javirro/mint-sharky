@@ -9,6 +9,7 @@ import SharkyWorldCollection from '../../components/SharkyWorldCollection/Sharky
 import SharkyClubFooter from '../../components/SharkyClubFooter/SharkyClubFooter'
 import { footerBannerImgs } from '../../images/footer'
 import SharkyWorldTop from '../../components/SharkyWorldTop/SharkyWorldTop'
+import Vision from '../../components/Vision/Vision'
 
 import './MintHome.css'
 
@@ -26,11 +27,12 @@ const MintHome = () => {
       <DesktopNavbar />
       <img src={footerBannerImgs.beginBanner} alt="Sharky Club" className="banner" />
       <SharkyWorldTop setTxHash={setTxHash} setType={setType} />
+      <Vision />
       <Manifesto />
-      <KeyBenefits />
       <EvolutionOfSharky />
       <SharkyWorldCollection setTxHash={setTxHash} setType={setType}/>
       <SharkyShop />
+      <KeyBenefits />
       <SharkyClubFooter setTxHash={setTxHash} setType={setType} />
     </section>
   )
