@@ -24,7 +24,7 @@ const MintHome = () => {
   return (
     <section className="page">
       {txHash !== '' && <MintModal setTxHash={setTxHash} txHash={txHash} type={type} />}
-      <DesktopNavbar />
+      {/* <DesktopNavbar /> */}
       <img src={footerBannerImgs.beginBanner} alt="Sharky Club" className="banner" />
       <SharkyWorldTop setTxHash={setTxHash} setType={setType} />
       <Vision />
