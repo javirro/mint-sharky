@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import MintModal from '../../components/Modal/MintModal'
-import DesktopNavbar from '../../components/Navbar/DesktopNavbar'
+// import DesktopNavbar from '../../components/Navbar/DesktopNavbar'
 import Manifesto from '../../components/Manifesto/Manifesto'
 import KeyBenefits from '../../components/GetAccessTo/KeyBenefits'
 import EvolutionOfSharky from '../../components/EvolutionOfSharky/EvolutionOfSharky'
