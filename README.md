@@ -11,3 +11,9 @@ https://docs.abs.xyz/abstract-global-wallet/agw-react/hooks/useGlobalWalletSigne
 
 - VITE_MINT_ENABLE= true or false
 - VITE_IS_PRO= true or false
+
+### Change Text
+
+- Go to the file: /src/texts/texts.json
+- Search the section you want to change and update the text wrote there.
+- Press in commit changes in Github --> Automatic deploy to vercel.

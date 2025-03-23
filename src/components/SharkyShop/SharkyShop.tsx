@@ -1,15 +1,13 @@
 import { openLinkWhitelist } from '../../constants'
 import { sharkyShopImages } from '../../images/sharkyShop/images'
+import { getText } from '../../texts/getText'
 import HeaderForSection from '../common/HeaderForSection/HeaderForSection'
 import './SharkyShop.css'
 
 const SharkyShop = () => {
   return (
     <section id="sharky-shop">
-      <HeaderForSection
-        title="Sharky Shop"
-        subtitle="Web3 brand with a powerful culture and mission. We will be the best native web3 brand, connecting physical & digital products."
-      />
+      <HeaderForSection title={getText('sharky-shop-title')} subtitle={getText('sharky-shop-text')} />
       <div className="container">
         <div className="grid-shop">
           <article>

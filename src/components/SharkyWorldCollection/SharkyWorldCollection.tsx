@@ -1,4 +1,3 @@
-
 import { IS_MINT_ENABLE, openLinkWhitelist } from '../../constants'
 import { useHandleConnection } from '../../hooks/useAbstract'
 import HeaderForSection from '../common/HeaderForSection/HeaderForSection'
@@ -10,7 +9,7 @@ import { encodeMintPublic } from '../../contracts/mint'
 import { useAbstractClient } from '@abstract-foundation/agw-react'
 
 import './SharkyWorldCollection.css'
-
+import { getText } from '../../texts/getText'
 
 const SharkyWorldCollection = ({ setTxHash, setType }: CommonProps) => {
   const { login, address } = useHandleConnection()
@@ -19,35 +18,32 @@ const SharkyWorldCollection = ({ setTxHash, setType }: CommonProps) => {
   const handleMintNft = async () => {
     const nfts = 1
     try {
-        const txApprove = await abstractClient?.sendTransaction({
-          to: USDT_ADDRESS as `0x${string}` ,
-          data: approveEncode(nfts) as `0x${string}`
-        })
-        console.log('Tx approve', txApprove)
-      } catch (error) {
-        console.error('Error approving tokens', error)
-      }
+      const txApprove = await abstractClient?.sendTransaction({
+        to: USDT_ADDRESS as `0x${string}`,
+        data: approveEncode(nfts) as `0x${string}`,
+      })
+      console.log('Tx approve', txApprove)
+    } catch (error) {
+      console.error('Error approving tokens', error)
+    }
 
-      try {
-        const tx= await abstractClient?.sendTransaction({
-          to: CONTRACT_ADDRESS as `0x${string}` ,
-          data: encodeMintPublic(nfts) as `0x${string}`
-        })
-        console.log('Tx minted', tx)
-        setTxHash(tx as string)
-        setType('success')
-      } catch (error) {
-        console.error('Error minting NFTs:', error)
-        setType('error')
-        setTxHash('error')
-      }
+    try {
+      const tx = await abstractClient?.sendTransaction({
+        to: CONTRACT_ADDRESS as `0x${string}`,
+        data: encodeMintPublic(nfts) as `0x${string}`,
+      })
+      console.log('Tx minted', tx)
+      setTxHash(tx as string)
+      setType('success')
+    } catch (error) {
+      console.error('Error minting NFTs:', error)
+      setType('error')
+      setTxHash('error')
+    }
   }
   return (
     <section id="sharky-world-collection">
-      <HeaderForSection
-        title="Sharky World Collection"
-        subtitle="Sharky World NFTs offer unique traits, making them valuable assets. Each element and trait of the Don Sharky collection will have an associated rarity score, which will be visible as another trait."
-      />
+      <HeaderForSection title={getText('sharky-world-collection-title')} subtitle={getText('sharky-world-collection-text')} />
       <SharksSlideshow />
       <div className="buttons-box">
         {IS_MINT_ENABLE ? (

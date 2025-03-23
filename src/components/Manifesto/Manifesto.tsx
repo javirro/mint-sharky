@@ -1,5 +1,6 @@
 import useCurrentDimensions from '../../hooks/useCurrentDimensions'
 import { manifestoImages } from '../../images/manifesto/images'
+import { getText } from '../../texts/getText'
 import './Manifesto.css'
 
 const Manifesto = () => {
@@ -7,10 +8,9 @@ const Manifesto = () => {
   const isMobile = width < 768
   return (
     <section id="manifesto">
-      <h3>Manifesto</h3>
+      <h3>{getText("manifesto-title")}</h3>
       <p>
-        Sharky World is a social brand. Owning a Sharky NFT gives you a digital identity that reflects the type of person you are a nonconformist entrepreneur
-        who follows their own path.
+      {getText("manifesto-text")}
       </p>
       {!isMobile ? (
         <div className="grid">

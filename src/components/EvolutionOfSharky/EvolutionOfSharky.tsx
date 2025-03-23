@@ -1,15 +1,12 @@
 import { evolutionImages } from '../../images/evolution/images'
+import { getText } from '../../texts/getText'
 import HeaderForSection from '../common/HeaderForSection/HeaderForSection'
 import './EvolutionOfSharky.css'
 
 const EvolutionOfSharky = () => {
   return (
     <section id="evolution">
-      <HeaderForSection
-        title="Evolution of sharky"
-        subtitle="HARKY is the artistic creation that symbolizes our way of understanding life However, it hasn't been easy to create our Sharky. It has been a long
-          process of two years and three evolutions! 🦈"
-      />
+      <HeaderForSection title={getText('evolution-sharky-title')} subtitle={getText('evolution-sharky-text')} />
 
       <div className="container">
         <article className="box-1">
